@@ -1,16 +1,38 @@
-## Hi there 👋
+👋🏽 Hi, I'm Emmanuel
 
-<!--
-**emmanuelnwaje-beep/emmanuelnwaje-beep** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+💻 Aspiring Web Developer | Computer Science Student
 
-Here are some ideas to get you started:
+I'm currently learning web development and building real-world projects while growing my skills one step at a time.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+🚀 What I'm Learning
+
+- 🌐 HTML
+- 🎨 CSS
+- ⚡ JavaScript
+- 🐍 Python
+- 🌱 Django
+
+🛠️ Current Project
+
+Elegance Fashion — a responsive fashion business website built with HTML, CSS and JavaScript.
+
+🔗 Live Website: https://emmanuelnwaje-beep.github.io/elegance-fashion/
+
+🎯 My Goal
+
+To become a skilled full-stack developer and build useful, professional websites and applications.
+
+📚 About Me
+
+- 🎓 Computer Science Student
+- 🇳🇬 Based in Lagos, Nigeria
+- 💡 Learning by building real projects
+- 🚀 Always improving my coding skills
+
+📫 Connect With Me
+
+📸 Instagram: @emmy.dc.785
+
+---
+
+⭐ Thanks for visiting my profile!
