@@ -1,52 +1,63 @@
-👋🏽 Hi, I'm Emmanuel
+💰 Student Expense Tracker
 
-💻 Aspiring Web Developer | Computer Science Student
+A simple, responsive expense-tracking web app built with HTML, CSS, and JavaScript.
 
-I'm currently learning web development and building real-world projects while growing my skills one step at a time.
+The project helps students keep track of their spending, set a budget, and monitor how much money they have left.
 
-🚀 What I'm Learning
+✨ Features
 
-"HTML5" (https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-"CSS3" (https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-"JavaScript" (https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-"Python" (https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-"Django" (https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-
-🚀 Featured Project
-
-👗 Elegance Fashion
-
-A responsive fashion business website built with HTML, CSS and JavaScript.
-
-✨ Features include:
-
+- 💰 Set and save a budget
+- ➕ Add expenses
+- 📂 Categorize expenses
+- 📅 Record expense dates
+- 📊 Track total spending
+- 💵 View remaining budget
+- 📈 Budget progress bar
+- ⚠️ Budget warning system
+- 📋 Expense counter
+- 📊 Spending summary by category
+- 🗑️ Delete individual expenses
+- 🧹 Clear all expenses with confirmation
+- 🔄 Reset budget with confirmation
+- 💾 Saves data using browser Local Storage
 - 📱 Mobile-friendly design
-- 🧭 Responsive navigation menu
-- 👗 Fashion service cards
-- 🖼️ Interactive image viewer
-- 💬 WhatsApp contact integration
 
-🌐 Live Website:
-https://emmanuelnwaje-beep.github.io/elegance-fashion/
+🛠️ Technologies Used
 
-📂 Source Code:
-https://github.com/emmanuelnwaje-beep/elegance-fashion
+- HTML5
+- CSS3
+- JavaScript
+- Local Storage
 
-🎯 My Goal
+🎯 Purpose
 
-To become a skilled full-stack developer and build useful, professional websites and applications.
+I built this project as part of my journey toward becoming a professional web developer.
 
-📚 About Me
+The goal was to practice building a real-world application with interactive features instead of only creating static webpages.
 
-- 🎓 Computer Science Student
-- 🇳🇬 Based in Lagos, Nigeria
-- 💡 Learning by building real projects
-- 🚀 Always improving my coding skills
+👨🏽‍💻 About Me
 
-📫 Connect With Me
+I'm Emmanuel, a Computer Science student and aspiring web developer from Nigeria.
 
-📸 Instagram: @emmy.dc.785
+I'm currently building projects while learning:
+
+- HTML
+- CSS
+- JavaScript
+- Python
+- Django
+
+🚀 Future Improvements
+
+Possible future versions may include:
+
+- 📅 Monthly expense filtering
+- 📊 More detailed charts
+- 🔎 Expense search
+- ✏️ Edit existing expenses
+- 📥 Export expenses
+- 🌙 Dark mode
 
 ---
 
-⭐ Thanks for visiting my profile!
+⭐ Thanks for checking out my project!
