@@ -1,84 +1,249 @@
-<!DOCTYPE html><html lang="en">  <head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Expense Tracker</title>  <link rel="stylesheet" href="style.css">  </head><body><div class="container">  <h1>💰 Student Expense Tracker</h1>  
+<!DOCTYPE html>
+<html lang="en">
 
-<p class="subtitle">  
-    Keep track of your daily spending.  
-</p>  
+<head>
+    <meta charset="UTF-8">
 
-<div class="total-box">  
-    <p>Total Spending</p>  
-    <h2 id="total">₦0</h2>  
-</div>  
-<div class="budget-box">  
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<h2>💰 My Budget</h2>  
+    <meta
+        name="theme-color"
+        content="#111827"
+    >
 
-<input  
-    type="number"  
-    id="budgetAmount"  
-    placeholder="Enter your budget (₦)"  
->  
+    <meta
+        name="description"
+        content="A simple and professional student expense tracking app."
+    >
 
-<button id="saveBudget">  
-    Save Budget  
-</button>  
+    <title>Student Expense Tracker</title>
 
-<p>Budget: <span id="budget">₦0</span></p>  
+    <link rel="stylesheet" href="style.css">
 
-<p>Spent: <span id="spent">₦0</span></p>  
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+</head>
 
-<p>Remaining: <span id="remaining">₦0</span></p>  
-  <p id="budgetWarning"></p>  
-  <div class="progress-container">  
-<div id="progressBar"></div>
+<body>
 
-</div>  <p id="progressText">0% used</p>  </div>  <div class="expense-form">  
+    <main class="container">
 
-    <input  
-        type="text"  
-        id="expenseName"  
-        placeholder="What did you spend on?"  
-    >  
-     <select id="expenseCategory">  
-<option value="">Choose category</option>  
-<option value="Food">🍔 Food</option>  
-<option value="Transport">🚌 Transport</option>  
-<option value="School">📚 School</option>  
-<option value="Data">📱 Data</option>  
-<option value="Other">🛍️ Other</option>
+        <header class="app-header">
 
-</select>  <input  
-        type="number"  
-        id="expenseAmount"  
-        placeholder="Amount (₦)"  
-    >  
-      <input  
-type="date"  
-id="expenseDate"  
-required
+            <div class="app-icon">
+                💰
+            </div>
 
-> 
+            <h1>Student Expense Tracker</h1>
 
-<button type="button" id="addButton">  
-        Add Expense  
-    </button>  
-   <button type="button" id="clearButton">Clear All Expenses</button>  
-   <button type="button" id="resetBudget">  
-Reset Budget
+            <p class="subtitle">
+                Keep track of your daily spending.
+            </p>
 
-</button>  </div>  
+        </header>
 
-<h2 class="list-title">  
-📋 Expenses (<span id="expenseCount">0</span>)  
-</h2>  
 
-<div id="expenseList"></div>
+        <!-- TOTAL SPENDING -->
 
-</div>  
-  <div class="summary-box">  <h2>📊 Spending Summary</h2>  
+        <section class="total-box">
 
-<div id="summaryList"></div>
+            <p>Total Spending</p>
 
-</div>  <script src="script.js"></script>  </body>  
+            <h2 id="total">
+                ₦0
+            </h2>
+
+        </section>
+
+
+        <!-- BUDGET -->
+
+        <section class="budget-box">
+
+            <h2>
+                💰 My Budget
+            </h2>
+
+            <input
+                type="number"
+                id="budgetAmount"
+                placeholder="Enter your budget (₦)"
+                min="1"
+            >
+
+            <button id="saveBudget">
+                Save Budget
+            </button>
+
+            <div class="budget-details">
+
+                <p>
+                    Budget:
+                    <strong id="budget">₦0</strong>
+                </p>
+
+                <p>
+                    Spent:
+                    <strong id="spent">₦0</strong>
+                </p>
+
+                <p>
+                    Remaining:
+                    <strong id="remaining">₦0</strong>
+                </p>
+
+            </div>
+
+            <p id="budgetWarning"></p>
+
+            <div class="progress-container">
+
+                <div id="progressBar"></div>
+
+            </div>
+
+            <p id="progressText">
+                0% used
+            </p>
+
+        </section>
+
+
+        <!-- ADD EXPENSE -->
+
+        <section class="expense-form">
+
+            <h2>
+                ➕ Add Expense
+            </h2>
+
+            <input
+                type="text"
+                id="expenseName"
+                placeholder="What did you spend on?"
+            >
+
+            <select id="expenseCategory">
+
+                <option value="">
+                    Choose category
+                </option>
+
+                <option value="Food">
+                    🍔 Food
+                </option>
+
+                <option value="Transport">
+                    🚌 Transport
+                </option>
+
+                <option value="School">
+                    📚 School
+                </option>
+
+                <option value="Data">
+                    📱 Data
+                </option>
+
+                <option value="Other">
+                    🛍️ Other
+                </option>
+
+            </select>
+
+
+            <input
+                type="number"
+                id="expenseAmount"
+                placeholder="Amount (₦)"
+                min="1"
+            >
+
+
+            <input
+                type="date"
+                id="expenseDate"
+            >
+
+
+            <button
+                type="button"
+                id="addButton"
+                class="primary-button"
+            >
+                Add Expense
+            </button>
+
+
+            <button
+                type="button"
+                id="clearButton"
+                class="danger-button"
+            >
+                Clear All Expenses
+            </button>
+
+
+            <button
+                type="button"
+                id="resetBudget"
+                class="secondary-button"
+            >
+                Reset Budget
+            </button>
+
+        </section>
+
+
+        <!-- EXPENSE LIST -->
+
+        <section class="expenses-section">
+
+            <h2 class="list-title">
+                📋 Expenses
+                <span class="count">
+                    <span id="expenseCount">0</span>
+                </span>
+            </h2>
+
+            <div id="expenseList"></div>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <section class="summary-box">
+
+            <h2>
+                📊 Spending Summary
+            </h2>
+
+            <div id="summaryList"></div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Student Expense Tracker
+            </p>
+
+            <small>
+                Built with HTML, CSS & JavaScript
+            </small>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
 </html>

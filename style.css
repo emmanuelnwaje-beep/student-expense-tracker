@@ -4,12 +4,17 @@
     padding: 0;
 }
 
+
 body {
     font-family: Arial, sans-serif;
     background: #f1f3f6;
     color: #222;
     padding: 20px;
+    min-height: 100vh;
 }
+
+
+/* MAIN CONTAINER */
 
 .container {
     width: 100%;
@@ -17,303 +22,513 @@ body {
     margin: 0 auto;
 }
 
-h1 {
+
+/* HEADER */
+
+.app-header {
     text-align: center;
+    margin-bottom: 25px;
+}
+
+
+.app-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #111827;
+    color: white;
+
+    border-radius: 18px;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+h1 {
     font-size: 28px;
     margin-bottom: 8px;
 }
 
+
 .subtitle {
-    text-align: center;
     color: #666;
-    margin-bottom: 25px;
+    line-height: 1.5;
 }
 
-/* Total */
+
+/* TOTAL */
+
 .total-box {
-    background: #222;
+    background: #111827;
     color: white;
+
     padding: 28px 20px;
+
     border-radius: 18px;
+
     text-align: center;
+
     margin-bottom: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
 
 .total-box p {
     font-size: 15px;
     margin-bottom: 8px;
+    opacity: 0.8;
 }
+
 
 .total-box h2 {
     font-size: 36px;
 }
 
-#total {
-    font-size: 22px;
-    font-weight: bold;
+
+/* BUDGET */
+
+.budget-box {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* Expense Form */
+
+.budget-box h2 {
+    margin-bottom: 15px;
+}
+
+
+.budget-box input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    margin-bottom: 10px;
+}
+
+
+.budget-box input:focus {
+    border-color: #111827;
+}
+
+
+.budget-box button {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.budget-details {
+    margin-top: 18px;
+}
+
+
+.budget-details p {
+    margin: 9px 0;
+
+    font-size: 16px;
+}
+
+
+.budget-details strong {
+    float: right;
+}
+
+
+#remaining {
+    font-size: 18px;
+}
+
+
+/* BUDGET WARNING */
+
+#budgetWarning {
+    text-align: center;
+
+    margin: 15px 0;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* PROGRESS */
+
+.progress-container {
+    width: 100%;
+
+    height: 20px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 10px;
+}
+
+
+#progressBar {
+    width: 0%;
+
+    height: 100%;
+
+    background: #111827;
+
+    border-radius: 10px;
+
+    transition:
+        width 0.5s ease;
+}
+
+
+#progressText {
+    text-align: center;
+
+    font-weight: bold;
+
+    margin-top: 8px;
+
+    font-size: 14px;
+}
+
+
+/* EXPENSE FORM */
+
 .expense-form {
     background: white;
+
     padding: 20px;
+
     border-radius: 18px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    margin-bottom: 25px;
 }
 
-.expense-form input {
+
+.expense-form h2 {
+    margin-bottom: 15px;
+}
+
+
+.expense-form input,
+.expense-form select {
     width: 100%;
+
     padding: 14px;
+
     margin-bottom: 12px;
+
     border: 1px solid #ddd;
+
     border-radius: 10px;
+
     font-size: 16px;
+
     outline: none;
+
+    background: white;
 }
 
-.expense-form input:focus {
-    border-color: #222;
+
+.expense-form input:focus,
+.expense-form select:focus {
+    border-color: #111827;
 }
+
+
+/* BUTTONS */
 
 .expense-form button {
     width: 100%;
+
     padding: 14px;
+
     border: none;
+
     border-radius: 10px;
-    background: #222;
-    color: white;
+
     font-size: 16px;
+
     font-weight: bold;
+
     cursor: pointer;
+
+    margin-top: 5px;
+
+    transition: 0.2s ease;
 }
+
 
 .expense-form button:active {
     transform: scale(0.98);
 }
 
-#addButton {
-    margin-bottom: 10px;
+
+.primary-button {
+    background: #111827;
+    color: white;
 }
 
-#clearButton {
-    margin-top: 5px;
+
+.danger-button {
+    background: #dc2626;
+    color: white;
 }
 
-#resetBudget {
-    margin-top: 10px;
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: none;
+
+.secondary-button {
+    background: #e5e7eb;
+    color: #222;
 }
 
-#resetBudget:active {
-    transform: scale(0.98);
-}
 
-/* Date */
-#expenseDate {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    min-height: 42px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
+/* EXPENSE LIST */
 
-/* Expense List */
 .list-title {
-    margin: 28px 0 14px;
+    margin: 25px 0 14px;
 }
+
+
+.count {
+    background: #111827;
+
+    color: white;
+
+    font-size: 13px;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+}
+
 
 #expenseList {
-    margin-top: 15px;
-    padding-top: 5px;
+    margin-top: 10px;
 }
+
 
 .expense-item {
     background: white;
-    padding: 12px;
-    border-radius: 8px;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
     margin-bottom: 12px;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+    gap: 12px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
-.expense-item h3 {
-    margin: 0 0 5px 0;
-    overflow-wrap: break-word;
+
+.expense-info {
+    min-width: 0;
 }
 
-.expense-item p {
-    margin: 3px 0;
-    line-height: 1.4;
-}
-
-.expense-item p:last-of-type {
-    font-weight: bold;
-}
-
-.expense-item p:last-child {
-    font-size: 13px;
-}
-
-.expense-item button {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    flex-shrink: 0;
-}
 
 .expense-info h3 {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+
+    overflow-wrap: anywhere;
 }
+
 
 .expense-info p {
     color: #666;
-    font-size: 15px;
+
+    font-size: 14px;
+
+    margin: 4px 0;
+
+    line-height: 1.4;
 }
+
+
+.expense-info .amount {
+    color: #111827;
+
+    font-size: 17px;
+
+    font-weight: bold;
+}
+
 
 .delete-button {
     border: none;
+
     background: #ffe5e5;
+
     color: #d00000;
+
     padding: 9px 12px;
+
     border-radius: 8px;
+
     cursor: pointer;
+
     font-size: 15px;
+
+    flex-shrink: 0;
 }
+
 
 .delete-button:active {
     transform: scale(0.95);
 }
 
-/* Empty Expense Message */
+
+/* EMPTY LIST */
+
 #expenseList > p {
     text-align: center;
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    color: #666;
+
+    line-height: 1.5;
+}
+
+
+/* SUMMARY */
+
+.summary-box {
+    background: white;
+
     padding: 20px;
-    margin: 15px 0;
-    font-size: 15px;
-    line-height: 1.5;
+
+    border-radius: 18px;
+
+    margin-top: 25px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* Budget */
-.budget-box {
-    padding: 15px;
-    border-radius: 10px;
+
+.summary-box h2 {
+    margin-bottom: 15px;
 }
 
-#budgetInput {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-#budgetInput::placeholder {
-    font-size: 14px;
-}
-
-#setBudgetButton {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-#setBudgetButton:active {
-    transform: scale(0.98);
-}
-
-.budget-box > p {
-    margin: 8px 0;
-}
-
-p:has(#budget),
-p:has(#spent),
-p:has(#remaining) {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-#budget,
-#spent,
-#remaining {
-    font-weight: bold;
-    display: inline-block;
-    margin-left: 5px;
-}
-
-#remaining {
-    font-size: 20px;
-}
-
-/* Progress */
-.progress-container {
-    width: 100%;
-    height: 20px;
-    background: #ddd;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    overflow: hidden;
-}
-
-#progressBar {
-    width: 0%;
-    height: 100%;
-    background: #222;
-    border-radius: 10px;
-    transition: width 0.5s ease;
-}
-
-#progressText {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 8px;
-    font-size: 14px;
-}
-
-/* Budget Warning */
-#budgetWarning {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* Summary */
-#summaryList {
-    margin-top: 10px;
-}
 
 #summaryList p {
-    margin: 6px 0;
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #eee;
+
+    font-weight: bold;
 }
 
-/* Mobile */
+
+#summaryList p:last-child {
+    border-bottom: none;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    margin: 30px 0 10px;
+
+    color: #777;
+
+    line-height: 1.6;
+}
+
+
+footer small {
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
 @media (max-width: 600px) {
-    .expense-item {
-        gap: 8px;
+
+    body {
+        padding: 15px;
     }
 
-    .expense-item button {
-        flex-shrink: 0;
+
+    h1 {
+        font-size: 24px;
     }
+
+
+    .total-box h2 {
+        font-size: 32px;
+    }
+
+
+    .expense-item {
+        padding: 13px;
+    }
+
 }

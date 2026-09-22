@@ -1,107 +1,171 @@
-var nameInput = document.getElementById("expenseName");
-var amountInput = document.getElementById("expenseAmount");
-var categoryInput = document.getElementById("expenseCategory");
+var nameInput =
+    document.getElementById("expenseName");
 
-var addButton = document.getElementById("addButton");
-var expenseList = document.getElementById("expenseList");
-var totalDisplay = document.getElementById("total");
-var summaryList = document.getElementById("summaryList");
+var amountInput =
+    document.getElementById("expenseAmount");
 
-var budgetInput = document.getElementById("budgetAmount");
-var saveBudgetButton = document.getElementById("saveBudget");
-var budgetDisplay = document.getElementById("budget");
-var spentDisplay = document.getElementById("spent");
-var remainingDisplay = document.getElementById("remaining");
+var categoryInput =
+    document.getElementById("expenseCategory");
+
+var dateInput =
+    document.getElementById("expenseDate");
+
+
+var addButton =
+    document.getElementById("addButton");
+
+var expenseList =
+    document.getElementById("expenseList");
+
+var totalDisplay =
+    document.getElementById("total");
+
+var summaryList =
+    document.getElementById("summaryList");
+
+
+var budgetInput =
+    document.getElementById("budgetAmount");
+
+var saveBudgetButton =
+    document.getElementById("saveBudget");
+
+var budgetDisplay =
+    document.getElementById("budget");
+
+var spentDisplay =
+    document.getElementById("spent");
+
+var remainingDisplay =
+    document.getElementById("remaining");
+
 
 var expenses =
-    JSON.parse(localStorage.getItem("studentExpenses")) || [];
+    JSON.parse(
+        localStorage.getItem("studentExpenses")
+    ) || [];
 
+
+/* =========================
+   DISPLAY EXPENSES
+========================= */
 
 function displayExpenses() {
 
     expenseList.innerHTML = "";
 
-    if (expenses.length == 0) {
+    var expenseCount =
+        document.getElementById("expenseCount");
+
+    expenseCount.textContent =
+        expenses.length;
+
+
+    if (expenses.length === 0) {
+
         expenseList.innerHTML =
             "<p>No expenses yet. Start tracking your spending!</p>";
     }
 
-    document.getElementById("expenseCount").innerHTML =
-        expenses.length;
-
 
     var totalAmount = 0;
 
-    var food = 0;
-    var transport = 0;
-    var school = 0;
-    var data = 0;
-    var other = 0;
+
+    var categories = {
+        Food: 0,
+        Transport: 0,
+        School: 0,
+        Data: 0,
+        Other: 0
+    };
 
 
-    for (var i = 0; i < expenses.length; i++) {
+    for (
+        var i = 0;
+        i < expenses.length;
+        i++
+    ) {
 
-        totalAmount =
-            totalAmount + expenses[i].amount;
+        var expense =
+            expenses[i];
 
 
-        if (expenses[i].category == "Food") {
-            food = food + expenses[i].amount;
+        totalAmount +=
+            Number(expense.amount);
+
+
+        if (
+            categories[
+                expense.category
+            ] !== undefined
+        ) {
+
+            categories[
+                expense.category
+            ] += Number(expense.amount);
+
         }
 
-        if (expenses[i].category == "Transport") {
-            transport = transport + expenses[i].amount;
-        }
 
-        if (expenses[i].category == "School") {
-            school = school + expenses[i].amount;
-        }
+        /* EXPENSE CARD */
 
-        if (expenses[i].category == "Data") {
-            data = data + expenses[i].amount;
-        }
+        var item =
+            document.createElement("div");
 
-        if (expenses[i].category == "Other") {
-            other = other + expenses[i].amount;
-        }
+        item.className =
+            "expense-item";
 
 
-        var item = document.createElement("div");
+        var info =
+            document.createElement("div");
 
-        item.className = "expense-item";
-
-
-        var info = document.createElement("div");
-
-
-        var title = document.createElement("h3");
-
-        title.innerHTML =
-            expenses[i].name;
+        info.className =
+            "expense-info";
 
 
-        var categoryText = document.createElement("p");
+        var title =
+            document.createElement("h3");
 
-        categoryText.innerHTML =
-            "Category: " + expenses[i].category;
-
-
-        var amountText = document.createElement("p");
-
-        amountText.innerHTML =
-            "₦" + expenses[i].amount;
+        title.textContent =
+            expense.name;
 
 
-        var dateText = document.createElement("p");
+        var categoryText =
+            document.createElement("p");
 
-        dateText.innerHTML =
-            "📅 " + (expenses[i].date || "No date");
+        categoryText.textContent =
+            "Category: " +
+            expense.category;
+
+
+        var amountText =
+            document.createElement("p");
+
+        amountText.className =
+            "amount";
+
+        amountText.textContent =
+            "₦" +
+            Number(expense.amount)
+                .toLocaleString();
+
+
+        var dateText =
+            document.createElement("p");
+
+        dateText.textContent =
+            "📅 " +
+            (expense.date || "No date");
 
 
         var deleteButton =
             document.createElement("button");
 
-        deleteButton.innerHTML = "🗑️";
+        deleteButton.className =
+            "delete-button";
+
+        deleteButton.textContent =
+            "🗑️ Delete";
 
 
         deleteButton.onclick =
@@ -109,12 +173,19 @@ function displayExpenses() {
 
                 return function() {
 
-                    expenses.splice(index, 1);
+                    expenses.splice(
+                        index,
+                        1
+                    );
+
 
                     localStorage.setItem(
                         "studentExpenses",
-                        JSON.stringify(expenses)
+                        JSON.stringify(
+                            expenses
+                        )
                     );
+
 
                     displayExpenses();
                 };
@@ -123,150 +194,236 @@ function displayExpenses() {
 
 
         info.appendChild(title);
-        info.appendChild(categoryText);
-        info.appendChild(amountText);
-        info.appendChild(dateText);
+
+        info.appendChild(
+            categoryText
+        );
+
+        info.appendChild(
+            amountText
+        );
+
+        info.appendChild(
+            dateText
+        );
 
 
         item.appendChild(info);
-        item.appendChild(deleteButton);
+
+        item.appendChild(
+            deleteButton
+        );
 
 
-        expenseList.appendChild(item);
+        expenseList.appendChild(
+            item
+        );
     }
 
 
-    totalDisplay.innerHTML =
-        "₦" + totalAmount;
+    /* TOTAL */
 
+    totalDisplay.textContent =
+        "₦" +
+        totalAmount.toLocaleString();
+
+
+    /* SUMMARY */
 
     summaryList.innerHTML = "";
 
 
-    if (food > 0) {
+    var categoryNames = [
+        "Food",
+        "Transport",
+        "School",
+        "Data",
+        "Other"
+    ];
 
-        summaryList.innerHTML =
-            summaryList.innerHTML +
-            "<p>Food: ₦" + food + "</p>";
+
+    for (
+        var c = 0;
+        c < categoryNames.length;
+        c++
+    ) {
+
+        var categoryName =
+            categoryNames[c];
+
+
+        var categoryAmount =
+            categories[
+                categoryName
+            ];
+
+
+        if (categoryAmount > 0) {
+
+            var summaryItem =
+                document.createElement("p");
+
+
+            var categoryLabel =
+                document.createElement("span");
+
+            categoryLabel.textContent =
+                categoryName;
+
+
+            var categoryValue =
+                document.createElement("strong");
+
+            categoryValue.textContent =
+                "₦" +
+                categoryAmount.toLocaleString();
+
+
+            summaryItem.appendChild(
+                categoryLabel
+            );
+
+            summaryItem.appendChild(
+                categoryValue
+            );
+
+
+            summaryList.appendChild(
+                summaryItem
+            );
+        }
     }
 
 
-    if (transport > 0) {
-
-        summaryList.innerHTML =
-            summaryList.innerHTML +
-            "<p>Transport: ₦" + transport + "</p>";
-    }
-
-
-    if (school > 0) {
-
-        summaryList.innerHTML =
-            summaryList.innerHTML +
-            "<p>School: ₦" + school + "</p>";
-    }
-
-
-    if (data > 0) {
-
-        summaryList.innerHTML =
-            summaryList.innerHTML +
-            "<p>Data: ₦" + data + "</p>";
-    }
-
-
-    if (other > 0) {
-
-        summaryList.innerHTML =
-            summaryList.innerHTML +
-            "<p>Other: ₦" + other + "</p>";
-    }
-
+    /* BUDGET */
 
     var savedBudget =
-        Number(localStorage.getItem("studentBudget")) || 0;
+        Number(
+            localStorage.getItem(
+                "studentBudget"
+            )
+        ) || 0;
 
 
-    budgetDisplay.innerHTML =
-        "₦" + savedBudget;
+    budgetDisplay.textContent =
+        "₦" +
+        savedBudget.toLocaleString();
 
 
-    spentDisplay.innerHTML =
-        "₦" + totalAmount;
+    spentDisplay.textContent =
+        "₦" +
+        totalAmount.toLocaleString();
 
 
-    remainingDisplay.innerHTML =
-        "₦" + (savedBudget - totalAmount);
+    var remaining =
+        savedBudget - totalAmount;
 
+
+    remainingDisplay.textContent =
+        "₦" +
+        remaining.toLocaleString();
+
+
+    /* PROGRESS */
 
     var warning =
-        document.getElementById("budgetWarning");
+        document.getElementById(
+            "budgetWarning"
+        );
 
 
     var percentage = 0;
 
 
     if (savedBudget > 0) {
+
         percentage =
-            (totalAmount / savedBudget) * 100;
+            (totalAmount / savedBudget) *
+            100;
     }
 
 
-    if (percentage > 100) {
-        percentage = 100;
+    var progressWidth =
+        percentage;
+
+
+    if (progressWidth > 100) {
+        progressWidth = 100;
     }
 
 
-    document.getElementById("progressBar").style.width =
-        percentage + "%";
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        progressWidth + "%";
 
 
-    document.getElementById("progressText").innerHTML =
-        Math.round(percentage) + "% used";
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        Math.round(percentage) +
+        "% used";
 
+
+    /* WARNING */
 
     if (savedBudget <= 0) {
 
-        warning.innerHTML =
+        warning.textContent =
             "Set a budget to start tracking.";
 
-    } else if (totalAmount > savedBudget) {
+    } else if (
+        totalAmount > savedBudget
+    ) {
 
-        warning.innerHTML =
+        warning.textContent =
             "🚨 You have exceeded your budget!";
 
-    } else if (totalAmount >= savedBudget * 0.8) {
+    } else if (
+        totalAmount >=
+        savedBudget * 0.8
+    ) {
 
-        warning.innerHTML =
+        warning.textContent =
             "⚠️ You are close to your budget limit!";
 
     } else {
 
-        warning.innerHTML =
+        warning.textContent =
             "✅ You are within your budget.";
     }
 }
 
 
+/* =========================
+   ADD EXPENSE
+========================= */
+
 addButton.onclick = function() {
 
-    var name = nameInput.value;
+    var name =
+        nameInput.value.trim();
+
 
     var amount =
-        Number(amountInput.value);
+        Number(
+            amountInput.value
+        );
+
 
     var category =
         categoryInput.value;
 
+
     var date =
-        document.getElementById("expenseDate").value;
+        dateInput.value;
 
 
     if (
-        name == "" ||
+        name === "" ||
         amount <= 0 ||
-        category == "" ||
-        date == ""
+        category === "" ||
+        date === ""
     ) {
 
         alert(
@@ -286,12 +443,15 @@ addButton.onclick = function() {
         category: category,
 
         date: date
+
     });
 
 
     localStorage.setItem(
         "studentExpenses",
-        JSON.stringify(expenses)
+        JSON.stringify(
+            expenses
+        )
     );
 
 
@@ -301,85 +461,143 @@ addButton.onclick = function() {
 
     categoryInput.value = "";
 
-    document.getElementById("expenseDate").value = "";
+    dateInput.value = "";
 
 
     displayExpenses();
 };
 
 
-saveBudgetButton.onclick = function() {
+/* =========================
+   SAVE BUDGET
+========================= */
 
-    var budget =
-        Number(budgetInput.value);
+saveBudgetButton.onclick =
+    function() {
+
+        var budget =
+            Number(
+                budgetInput.value
+            );
 
 
-    if (budget <= 0) {
+        if (budget <= 0) {
 
-        alert("Please enter a valid budget.");
+            alert(
+                "Please enter a valid budget."
+            );
 
-        return;
+            return;
+        }
+
+
+        localStorage.setItem(
+            "studentBudget",
+            budget
+        );
+
+
+        budgetInput.value = "";
+
+
+        displayExpenses();
+
+
+        alert(
+            "Budget saved: ₦" +
+            budget.toLocaleString()
+        );
+    };
+
+
+/* =========================
+   CLEAR EXPENSES
+========================= */
+
+document.getElementById(
+    "clearButton"
+).onclick = function() {
+
+    var confirmClear =
+        confirm(
+            "Are you sure you want to clear all expenses?"
+        );
+
+
+    if (confirmClear) {
+
+        expenses = [];
+
+
+        localStorage.removeItem(
+            "studentExpenses"
+        );
+
+
+        displayExpenses();
     }
-
-
-    localStorage.setItem(
-        "studentBudget",
-        budget
-    );
-
-
-    budgetInput.value = "";
-
-
-    displayExpenses();
-
-
-    alert(
-        "Budget saved: ₦" + budget
-    );
 };
 
+
+/* =========================
+   RESET BUDGET
+========================= */
+
+document.getElementById(
+    "resetBudget"
+).onclick = function() {
+
+    var confirmReset =
+        confirm(
+            "Are you sure you want to reset your budget?"
+        );
+
+
+    if (confirmReset) {
+
+        localStorage.removeItem(
+            "studentBudget"
+        );
+
+
+        displayExpenses();
+    }
+};
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+        "load",
+        function() {
+
+            navigator.serviceWorker
+                .register("./sw.js")
+                .then(function() {
+
+                    console.log(
+                        "Service Worker registered successfully."
+                    );
+
+                })
+                .catch(function(error) {
+
+                    console.log(
+                        "Service Worker registration failed:",
+                        error
+                    );
+                });
+        }
+    );
+}
+
+
+/* =========================
+   START APP
+========================= */
 
 displayExpenses();
-
-
-document.getElementById("clearButton").onclick =
-    function() {
-
-        var confirmClear =
-            confirm(
-                "Are you sure you want to clear all expenses?"
-            );
-
-
-        if (confirmClear) {
-
-            expenses = [];
-
-            localStorage.removeItem(
-                "studentExpenses"
-            );
-
-            displayExpenses();
-        }
-    };
-
-
-document.getElementById("resetBudget").onclick =
-    function() {
-
-        var confirmReset =
-            confirm(
-                "Are you sure you want to reset your budget?"
-            );
-
-
-        if (confirmReset) {
-
-            localStorage.removeItem(
-                "studentBudget"
-            );
-
-            displayExpenses();
-        }
-    };
